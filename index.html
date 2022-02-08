@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/createNewTodoModal.css" />
+    <link rel="stylesheet" href="styles/fileInput.css" />
+    <script
+      src="https://kit.fontawesome.com/fe69e6317d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <h1>To Do</h1>
+    <div class="container">
+      <div class="head">
+        <div id="date">
+          2022.02.02<br />
+          Wednesday
+        </div>
+        <button class="newBtn mobile">New to do</button>
+        <!-- <div class="sum desktop">
+          <p id="todo-items-left">You have x pending items.</p>
+        </div> -->
+      </div>
+      <div class="sum mobile">
+        <p id="todo-items-left">You have x pending items.</p>
+      </div>
+
+      <!-- Ez lesz a fejlec -->
+      <div class="header">
+        <ul class="details-head">
+          <li id="name-header">Name</li>
+          <li id="priority-header">Priority</li>
+          <li id="created-header">Create At</li>
+          <li id="deadline-header">Deadline</li>
+        </ul>
+      </div>
+      <div id="container-todo">
+        <div class="container-active">
+          <div class="todo active">
+            <div class="todo-main active">
+              <input type="checkbox" class="check" />
+              <h2 class="todoName">Feed the cat</h2>
+              <a class="delBtn" href="">X</a>
+              <!--js bol span lesz a tag helyet-->
+              <p class="descr">Lorem ipsum dolor sit amet</p>
+              <ul class="details">
+                <li>
+                  <span class="detailItemName">Prio:</span
+                  ><span id="detailsPrio">1</span>
+                </li>
+                <li>
+                  <span class="detailItemName">Created:</span
+                  ><span id="detailsCreatedat">2022.02.02</span>
+                </li>
+                <li>
+                  <span class="detailItemName">Deadline:</span
+                  ><span id="detailsDeadline">2022.03.01</span>
+                </li>
+              </ul>
+              <button class="editBtn">Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-completed">
+          <div class="todo completed">
+            <div class="todo-main completed">
+              <input type="checkbox" id="listDone" class="check" />
+              <h2 class="todoName">Feed the cat</h2>
+              <a class="delBtn" href="">X</a>
+              <p class="descr">Lorem ipsum dolor sit amet</p>
+              <ul class="details">
+                <li><span class="inactive">Prio:</span><span>1</span></li>
+                <li>
+                  <span class="inactive">Created:</span><span>2022.02.02</span>
+                </li>
+                <li>
+                  <span class="inactive">Deadline:</span><span>2022.03.01</span>
+                </li>
+              </ul>
+              <button class="editBtn">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view">
+        <span class="filterBtn activeFilter" data-taskdone="">All</span>
+        <span class="filterBtn" data-taskdone="false">Active</span>
+        <span class="filterBtn" data-taskdone="true">Completed</span>
+      </div>
+      <div class="btns-mobile">
+        <button id="importBtn" class="impExpBtn">
+          <label for="fileInput" class="importLabel">Import</label>
+          <input id="fileInput" type="file" accept="application/JSON" />
+        </button>
+        <button id="lightDark">
+          <i id="lightDarkIcon" class="fas fa-moon"></i>
+        </button>
+        <button id="exportBtn" class="impExpBtn">Export</button>
+        <button class="newBtn desktop">New to do</button>
+      </div>
+    </div>
+    <!-- NEW TODO MODAL -->
+    <div class="modal-new modal inactive" data-type="new" data-taskid="">
+      <!-- data-type,data-taskid hozza adtam -->
+      <div class="modal-box">
+        <h3 class="newTodoModalTitle">Create New Todo</h3>
+        <!-- uj classt adtam hozza-->
+        <form id="modal-form" action="#">
+          <label for="newTodoName" plac>Name</label>
+          <input type="text" name="newTodoName" id="newTodoName" />
+          <p class="invalidMsg inactive">Name is required!</p>
+          <label for="newTodoDescription">Description</label>
+          <textarea
+            name="newTodoDescription"
+            id="newTodoDescription"
+            cols="10"
+            rows="3"
+          ></textarea>
+          <div class="deadlinePrioCtn">
+            <div class="newTodoDeadLineCtn">
+              <label for="newtodoDeadline">Deadline</label>
+              <input
+                type="date"
+                name="newTodoDeadline"
+                id="newTodoDeadline"
+                value="2022-02-01"
+                min="2022-01-01"
+                max="2100-12-31"
+              />
+            </div>
+            <div class="prioCtn">
+              <label for="prioSelector">Priority</label>
+              <select id="prioSelector">
+                <option value="" selected disabled></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <p class="invalidMsg inactive">Required!</p>
+            </div>
+          </div>
+        </form>
+        <div class="createNewTodoBtnsCtn">
+          <button type="button" class="modalCancel">Cancel</button>
+          <button type="button" id="createNewTodoModalBtn" disabled>
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+    <script defer type="module" src="./scripts/TodoList.js"></script>
+  </body>
+</html>

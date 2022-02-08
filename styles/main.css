@@ -1,0 +1,552 @@
+/* COLORS
+
+    --color1: text;
+    --color2: container bg, buttontext;
+    --color3: todo main active;
+    --color4: todo main descr;
+    --color5: btn bg (import, export);
+    --color6: todo main completed;
+    --color7: todo descr completed;
+    --color8: new btn bg;
+    --color9: btn bg (edit);
+    --color10: text date, pending items;
+    --color11: edtBtn outline;
+    --color12: todo desktop;
+    --color13: X;
+    --color14: fas (moon/sun);
+    --color15: todo main outline;
+    --color16: editBtn bg;
+
+*/
+
+.inactive {
+  display: none !important;
+}
+
+:root {
+  --bgImg: url("../img/bg_light.jpg");
+  --color1: #50b9bd;
+  --color2: #ffffff;
+  --color3: #ffffff;
+  --color4: #ffffff;
+  --color5: #50b9bd;
+  --color6: #cbcbcb;
+  --color7: #e5e5e5;
+  --color8: #d23a11;
+  --color9: #ffffff;
+  --color10: #00495c;
+  --color11: #fff67f;
+  --color12: #ffffff;
+  --color13: #d23a11;
+  --color14: yellow;
+  --color15: #50b9bd;
+  --color16: #fff67f;
+}
+
+[data-theme="dark"] {
+  --bgImg: url("../img/bg_dark.jpg");
+  --color1: #d2d2d2;
+  --color2: #222222;
+  --color3: #333333;
+  --color4: #3c3c3c;
+  --color5: #50b9bd;
+  --color6: #00495c;
+  --color7: #013543;
+  --color8: #8105c2;
+  --color9: #50b9bd;
+  --color10: #d2d2d2;
+  --color11: ##50b9bd;
+  --color12: #d2d2d2;
+  --color13: #d2d2d2;
+  --color14: #d2d2d2;
+  --color15: #3c3c3c;
+  --color16: #50b9bd;
+}
+
+/* Laci */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  /* margin: 0; */
+  /* padding: 0; */
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: var(--color1);
+  /*background-color: var(--color2);*/
+  /*background-image: url(../img/bg_light_mobil.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;*/
+  background-color: var(--color2);
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 6rem;
+  color: var(--color10);
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border-radius: 0.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /*background-color: var(--color2);*/
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Laci */
+  padding: 0 5vw;
+  color: var(--color10);
+}
+
+#date {
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.newBtn {
+  background-color: var(--color8);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  /* width: 7rem; */
+  padding: 1rem 1rem;
+  text-align: center;
+}
+
+.sum.desktop {
+  display: none;
+}
+
+#todo-items-left {
+  color: var(--color10);
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+#search {
+  display: none;
+}
+
+#search input {
+  height: 2rem;
+  margin-right: 0;
+}
+
+#search button {
+  margin: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.header {
+  display: none;
+}
+
+.todo-main {
+  display: grid;
+  grid-template-columns: 2.5rem 53% 25% 10%; /*15% 78% 10%*/
+  grid-template-rows: auto auto auto; /* 1fr fit-content(10%) 1fr*/
+  grid-template-areas:
+    "checkbox todoName todoName delBtn"
+    "descr descr descr descr"
+    "details details editBtn editBtn";
+  margin: 4vw 2vw 0;
+  border-radius: 2vw;
+  padding-top: 1rem;
+}
+
+.todo-main.active {
+  border: 1px solid var(--color15);
+  background-color: var(--color3);
+}
+
+.todo-main.completed {
+  background-color: var(--color6);
+  color: white;
+}
+
+.delBtn {
+  font-size: 2rem;
+  text-decoration: none;
+  justify-self: end;
+  color: var(--color13);
+}
+
+.todo-descr {
+  background-color: var(--color4);
+  border: 1px solid var();
+  margin: 0 2vw;
+  padding: 2vw;
+  border-bottom-left-radius: 2vw;
+  border-bottom-right-radius: 2vw;
+  color: var(--color10);
+}
+
+.todo-descr.active {
+  border-left: 1px solid var(--color1);
+  border-bottom: 1px solid var(--color1);
+  border-right: 1px solid var(--color1);
+}
+
+.todo-descr.completed {
+  background-color: var(--color7);
+}
+
+.descr {
+  grid-area: descr;
+  text-align: left;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 1rem;
+  color: var(--color10);
+  /* justify-content: space-between; */
+}
+
+.details li > span:first-of-type {
+  margin-right: 0.3rem;
+}
+
+.editBtn {
+  justify-self: end;
+  align-self: center; /*Laci*/
+  grid-area: editBtn;
+  /* width: 10rem; */
+  font-size: 1rem; /*Laci*/
+  padding: 0.5rem 1rem; /*Laci*/
+  background-color: var(--color16);
+  border: 1px solid var(--color16);
+  color: var(--color12);
+}
+
+.check {
+  grid-area: checkbox;
+  width: 1.5rem; /* Laci 6vw*/
+  height: 1.5rem; /* Laci 6vw*/
+  border-radius: 10vw;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox > input {
+  background-color: #013543;
+}
+
+.todoName {
+  grid-area: todoName;
+  margin: 2vw 0;
+}
+
+.todoName:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.delBtn {
+  grid-area: delBtn;
+  margin: 2vw;
+  cursor: pointer;
+}
+
+.view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color10);
+}
+
+.filterBtn {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  opacity: 0.6;
+}
+
+.activeFilter {
+  color: var(--color5);
+  text-decoration: underline;
+}
+
+.btns-mobile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2vw;
+}
+
+.newBtn.desktop {
+  display: none;
+}
+.impExpBtn:not(#importBtn) {
+  padding: 0.5rem 1rem;
+}
+
+.impExpBtn {
+  /* width: 30vw;
+  height: 10vw; */
+  font-size: 1rem;
+  background-color: var(--color5);
+  border: none;
+  color: var(--color2);
+}
+
+#lightDark {
+  background: transparent;
+  border: none;
+  color: yellow;
+  font-size: 2rem;
+  margin: 0 2rem;
+}
+
+.fas {
+  color: var(--color14);
+}
+
+@media only screen and (min-width: 700px) {
+  body {
+    background-image: var(--bgImg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1 {
+    font-size: 10rem;
+    margin: 6vh;
+    color: var(--color12);
+  }
+
+  .head {
+    padding: 0;
+  }
+
+  #date {
+    padding: 1rem;
+  }
+
+  /* .sum.mobile {
+    display: none;
+  } */
+
+  .sum.desktop {
+    display: flex;
+    font-size: 2rem;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--color2);
+    padding: 1rem;
+  }
+
+  .newBtn.mobile {
+    display: none;
+  }
+
+  /*#search {
+    display: flex;
+    width: 100%;
+    margin: 1vw;
+  }*/
+
+  .header {
+    margin-top: 1rem;
+    display: block;
+    grid-template-columns: 10% 35% 9% 18% 18% 10%;
+    grid-template-rows: auto;
+    grid-template-areas: ". nameHeader prioHeader createdHeader deadlineHeader .";
+  }
+
+  #name-header {
+    grid-area: nameHeader;
+    text-align: center;
+  }
+
+  #name-header:hover {
+    color: var(--color10);
+    cursor: pointer;
+  }
+
+  #priority-header {
+    grid-area: prioHeader;
+  }
+
+  #priority-header:hover {
+    color: var(--color10);
+    cursor: pointer;
+  }
+
+  #created-header {
+    grid-area: createdHeader;
+  }
+
+  #created-header:hover {
+    color: var(--color10);
+    cursor: pointer;
+  }
+
+  #deadline-header {
+    grid-area: deadlineHeader;
+  }
+
+  #deadline-header:hover {
+    color: var(--color10);
+    cursor: pointer;
+  }
+
+  .todo-main {
+    width: 100%;
+    margin: 1rem 0 0 0;
+    /* height: 10vh;  */ /* Laci */
+    border-radius: 0.5rem;
+    /*justify-content: left;*/
+    align-items: center;
+    grid-template-columns: 10% 25% 45% 10% 10%; /*15% 78% 10%*/
+    grid-template-rows: auto auto; /* 1fr fit-content(10%) 1fr*/
+    grid-template-areas:
+      "checkbox todoName details editBtn delBtn"
+      "descr descr descr descr descr";
+    /* "details details editBtn editBtn"; */
+    padding-top: 0;
+  }
+
+  /*.delBtn {
+    justify-self: right;
+  }*/
+
+  .todo-descr {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .check {
+    justify-self: center;
+  }
+
+  .todoName {
+    width: 30vw;
+    text-align: left; /*Laci tette bele*/
+  }
+
+  .details-head {
+    display: grid;
+    grid-template-columns: 10% repeat(4, 1fr) 10% 10%; /*15% 78% 10%*/
+    grid-template-rows: auto auto; /* 1fr fit-content(10%) 1fr*/
+    grid-template-areas: ". name-header priority-header created-header deadline-header . .";
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+    /* align-items: center; */
+    font-size: 1rem;
+    padding: 0 2rem;
+  }
+
+  #name-header {
+    grid-area: name-header;
+    justify-self: left;
+  }
+  #priority-header {
+    grid-area: priority-header;
+  }
+  #created-header {
+    grid-area: created-header;
+    justify-self: left;
+  }
+  #deadline-header {
+    grid-area: deadline-header;
+    justify-self: center;
+  }
+
+  .detailItemName {
+    display: none;
+  }
+
+  .details {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 2rem;
+  }
+
+  .details-createdTime {
+    width: 15%;
+  }
+
+  .details-deadline {
+    width: 15%;
+  }
+
+  .details-priority {
+    width: 10%;
+  }
+
+  .editBtn {
+    /* .mobile Laci kivettem mobilet*/
+    /* display: none; */
+    /* width: 20vw; */
+    /* height: 5vw; */
+    /* width: 5rem;
+    height: 3rem; */
+    padding: 0.5rem 1rem;
+    display: inline !important;
+  }
+
+  /*  Laci commenteltek mar nem kellenek szerintem*/
+  /* .editBtn.desktop { 
+    width: 10vw;
+    height: 5vw;
+  } */
+
+  /* .details-mobile {
+    display: none;
+  } */
+
+  .impExpBtn {
+    width: 10vw;
+    height: 5vw;
+  }
+
+  .newBtn.desktop {
+    display: inline-block;
+    width: 15vw;
+    margin-left: 1rem;
+  }
+
+  .details {
+    display: flex !important;
+  }
+}
