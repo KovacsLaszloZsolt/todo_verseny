@@ -1,0 +1,41 @@
+ {
+   "todoList": [
+     {
+       "id": 1,
+       "name": "todo1",
+       "description": "todo1 leírás",
+       "createAt": 1313174400000,
+       "deadline": 1813174400000,
+       "priority": 1,
+       "taskDone": true
+     },
+     {
+       "id": 5,
+       "name": "todo5",
+       "description": "todo5 leírás",
+       "createAt": 1513174400000,
+       "deadline": 1813174400000,
+       "priority": 1,
+       "taskDone": false
+     },
+     {
+       "id": 2,
+       "name": "todo2",
+       "description": "todo2 leírás",
+       "createAt": 1613174400000,
+       "deadline": 1713174400000,
+       "priority": 2,
+       "taskDone": true
+     },
+     {
+       "id": 3,
+       "name": "todo3",
+       "description": "todo3 leírás",
+       "createAt": 1234483200000,
+       "deadline": 1134483200000,
+       "priority": 3,
+       "taskDone": false
+     }
+   ],
+   "lastID": 5
+ }
